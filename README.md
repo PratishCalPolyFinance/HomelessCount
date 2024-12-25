@@ -3,7 +3,7 @@ This repository scrapes homeless count data across Continuums of Care (COCs) in 
 
 Features:
 
-Automated scraping of COC-level data.
-Analysis of mental health and substance abuse trends.
-Longitudinal insights with clear visualizations.
-Designed for researchers and policymakers, this tool simplifies data collection and supports actionable insights.
+1) Automated scraping of COC-level data.
+2) Analysis of mental health and substance abuse trends.
+3) Longitudinal insights with clear visualizations.
+4) Designed for researchers and policymakers, this tool simplifies data collection and supports actionable insights.
