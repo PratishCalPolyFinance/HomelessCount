@@ -18,9 +18,6 @@ generate_coc_report_links <- function(year) {
   # Convert year to character (in case it's numeric)
   year <- as.character(year)
   
-  # Clear workspace before loading data
-  rm(list = ls())  # Removes all objects from the workspace to ensure a clean environment
-  
   # Load necessary packages
   source('Code/0-LoadPackages.R')  # Sources the script to load required packages
   
