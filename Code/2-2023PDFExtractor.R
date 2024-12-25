@@ -154,7 +154,7 @@ for (i in seq_len(nrow(Report_2023))) {
   # Append the combined data to the final dataframe
   final_data <- bind_rows(final_data, combined_data)
 }
-
+write.csv(final_data,here::here("Data","Homeless_PitCount_2023.csv"))
 # ====================================================================
 # End of Script
 # ====================================================================
