@@ -43,3 +43,4 @@ for (i in seq_len(nrow(year_list))) {
   final_data <- bind_rows(final_data, filtered_data)
 }
 
+write.csv(final_data,'Data/StatePanel.csv')
