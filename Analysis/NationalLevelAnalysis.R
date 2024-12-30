@@ -1,6 +1,5 @@
 # Load necessary packages
 source('Code/0-LoadPackages.R')
-library("gifski","gganimate")
 
 # Load the data
 TotalHomelessData <- read.csv('Data/StatePanel.csv') %>% 
