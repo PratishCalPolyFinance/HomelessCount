@@ -41,7 +41,7 @@ BestStates %>%
     width = 0.9,
   )+
   geom_text(aes(label = scales::comma(change)), position = position_dodge(0.9), 
-            vjust=0.5,hjust = 1.2, colour = "white",size = 3,
+            vjust=0.5,hjust = 1.2, colour = "white",size = 4,
             fontface = "bold") +
   theme_minimal(base_size = 12, base_family = "Source Sans Pro") +
   theme(
@@ -78,5 +78,38 @@ BestStates %>%
     
   )+ annotate("text", x = 12500, y = 2, 
               label = "NJ, IL, CT, MS, AL, ND, WI, AR, OH, \nVA, WV, NE, KY, IA, WY, TN, HI, IN, KS",
-              size = 1.9, color = "#262a18", fontface ="bold")
+              size = 2.9, color = "#262a18", fontface ="bold")
 
+# Do a US map now. 
+StateChangeData <- HomelessChange %>%
+                  filter(year == 2013) %>%
+                  mutate(
+                    fips = fips(state),
+                    change = change * -1,
+                    relative_change = round(change / overall_homeless *1,2)
+                  )
+
+p2 <- plot_usmap(data = StateChangeData, values = "relative_change",  color = "white", labels=FALSE) + 
+  scale_fill_continuous(labels = scales::percent_format(accuracy = 2L)
+  ) + 
+  scale_color_brewer(palette = 'Oranges')+
+  theme(
+    legend.position = "top",
+    text = element_text(
+      size = 14,
+      family = "Source Sans Pro"
+    )
+  )+
+  labs(title = "Relative Change in the number of homeless between 2013 and 2023",
+       subtitle = "Florida has done the best; CA has done the worst",
+       fill = "Percentage change in homeless",
+       caption = 'Source: US Department of Housing and Urban Development \n Continuum of Care Reports'
+  ) +
+  guides(
+    fill = guide_colorbar(
+      barwidth = unit(5,"cm"),
+      barheight = unit(0.5,"cm"),
+      title.position = "top"
+    )
+  )
+p2
